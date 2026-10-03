@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en" dir="ltr" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Toka Fares · Frontend &amp; Full-stack Developer</title>
+    <meta name="description" content="Freelance frontend and full-stack developer building fast, polished web apps with React, TypeScript, Node.js and PostgreSQL, in English, Arabic or both." />
+    <meta name="author" content="Toka Fares" />
+    <meta name="theme-color" content="#0b0c0e" />
+    <link rel="canonical" href="https://tokafares.vercel.app/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Toka Fares" />
+    <meta property="og:title" content="Toka Fares · Frontend &amp; Full-stack Developer" />
+    <meta property="og:description" content="Freelance frontend and full-stack developer building fast, polished web apps with React, TypeScript, Node.js and PostgreSQL, in English, Arabic or both." />
+    <meta property="og:url" content="https://tokafares.vercel.app/" />
+    <meta property="og:image" content="https://tokafares.vercel.app/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="ar_EG" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Toka Fares · Frontend &amp; Full-stack Developer" />
+    <meta name="twitter:description" content="Freelance frontend and full-stack developer building fast, polished web apps with React, TypeScript, Node.js and PostgreSQL, in English, Arabic or both." />
+    <meta name="twitter:image" content="https://tokafares.vercel.app/og-image.png" />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+
+    <!-- Apply the saved language, direction and theme before first paint (keys match LanguageProvider / ThemeProvider).
+         Fonts are self-hosted and bundled; Cairo is loaded on demand by LanguageProvider. -->
+    <script>
+      (function () {
+        var root = document.documentElement
+        try {
+          var lang = localStorage.getItem('touka:lang')
+          if (lang === 'ar') {
+            root.lang = 'ar'
+            root.dir = 'rtl'
+          }
+          if (localStorage.getItem('touka:theme') === 'light') {
+            root.setAttribute('data-theme', 'light')
+            root.style.colorScheme = 'light'
+          }
+        } catch (e) {}
+      })()
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript>
+      <p style="padding: 2rem; font-family: system-ui, sans-serif">
+        Toka Fares, frontend &amp; full-stack developer. Projects: Nour Dental Clinic, Ember, Sahtein, Pulse Analytics and GamerSense, all on
+        <a href="https://github.com/tokafares">GitHub</a>.
+      </p>
+    </noscript>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

@@ -1,0 +1,233 @@
+@import 'tailwindcss';
+
+/* ── Theme tokens ─────────────────────────────────────────────
+   Dark is the default; [data-theme='light'] swaps the palette.
+   Components use the Tailwind colors below, never raw hex values. */
+:root {
+  --bg: #0b0c0e;
+  --surface: #121418;
+  --surface-2: #191c21;
+  --line: rgb(255 255 255 / 0.08);
+  --line-strong: rgb(255 255 255 / 0.16);
+  --text: #ecebe6;
+  --muted: #9b9c96;
+  --accent: #c6f16d;
+  --accent-ink: #11140a;
+  --accent-soft: rgb(198 241 109 / 0.1);
+  --grid: rgb(255 255 255 / 0.035);
+  --glow: rgb(198 241 109 / 0.09);
+  --shadow: 0 1px 0 rgb(255 255 255 / 0.04) inset, 0 20px 40px -24px rgb(0 0 0 / 0.7);
+  color-scheme: dark;
+}
+
+:root[data-theme='light'] {
+  --bg: #f3f1ea;
+  --surface: #fbfaf6;
+  --surface-2: #ebe8de;
+  --line: rgb(22 23 15 / 0.1);
+  --line-strong: rgb(22 23 15 / 0.2);
+  --text: #16170f;
+  --muted: #5b5c53;
+  --accent: #3f6212;
+  --accent-ink: #f7fbe9;
+  --accent-soft: rgb(63 98 18 / 0.09);
+  --grid: rgb(22 23 15 / 0.045);
+  --glow: rgb(101 163 13 / 0.1);
+  --shadow: 0 1px 0 rgb(255 255 255 / 0.6) inset, 0 20px 40px -28px rgb(40 40 20 / 0.35);
+  color-scheme: light;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-text: var(--text);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-accent-soft: var(--accent-soft);
+}
+
+@theme {
+  --font-sans: 'Geist Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'Geist Mono Variable', ui-monospace, 'SFMono-Regular', monospace;
+  --font-serif: 'Instrument Serif', ui-serif, Georgia, serif;
+  --font-arabic: 'Cairo Variable', 'Geist Variable', ui-sans-serif, system-ui, sans-serif;
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ── Base ─────────────────────────────────────────────────── */
+html {
+  background: var(--bg);
+  color: var(--text);
+  scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-feature-settings: 'ss01', 'cv11';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100dvh;
+  overflow-x: clip;
+}
+
+:lang(ar) body {
+  font-family: var(--font-arabic);
+  font-feature-settings: normal;
+  line-height: 1.75;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+/* Emphasised words: an italic serif in English, the accent color in Arabic (Arabic has no italic). */
+.emph {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--accent);
+  letter-spacing: 0;
+}
+:lang(ar) .emph {
+  font-family: inherit;
+  font-style: normal;
+  font-weight: inherit;
+}
+
+/* Big step numbers: serif italic in English, bold Cairo in Arabic. */
+.step-num {
+  font-family: var(--font-serif);
+  font-style: italic;
+}
+:lang(ar) .step-num {
+  font-family: var(--font-arabic);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 3rem;
+}
+
+/* Mono labels stay in Geist Mono for Latin text but fall back to Cairo for Arabic glyphs. */
+.label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+:lang(ar) .label {
+  font-family: var(--font-arabic);
+  letter-spacing: 0;
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+/* ── Focus: visible for keyboard users only ───────────────── */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* ── Decorative background ────────────────────────────────── */
+.bg-grid {
+  background-image:
+    linear-gradient(to right, var(--grid) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 0%, #000 40%, transparent 100%);
+}
+.bg-glow {
+  background: radial-gradient(ellipse 50% 60% at 70% 10%, var(--glow), transparent 70%);
+}
+:dir(rtl) .bg-glow {
+  background: radial-gradient(ellipse 50% 60% at 30% 10%, var(--glow), transparent 70%);
+}
+
+.card-shadow {
+  box-shadow: var(--shadow);
+}
+
+/* Directional icons point the right way in RTL. */
+:dir(rtl) .flip-rtl {
+  transform: scaleX(-1);
+}
+
+/* ── Reveal on scroll ─────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 0.7s var(--ease-out-soft),
+    transform 0.7s var(--ease-out-soft);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+.reveal[data-visible='true'] {
+  opacity: 1;
+  transform: none;
+}
+
+@keyframes pulse-dot {
+  0% { box-shadow: 0 0 0 0 var(--accent-soft); }
+  70% { box-shadow: 0 0 0 8px transparent; }
+  100% { box-shadow: 0 0 0 0 transparent; }
+}
+.status-dot {
+  animation: pulse-dot 2.4s ease-out infinite;
+}
+
+@keyframes hero-in {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: none; }
+}
+.hero-in {
+  animation: hero-in 0.9s var(--ease-out-soft) both;
+}
+.hero-in-delay {
+  animation-delay: 0.15s;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.animate-fade-in {
+  animation: fade-in 0.2s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .status-dot,
+  .hero-in,
+  .animate-fade-in {
+    animation: none;
+  }
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
