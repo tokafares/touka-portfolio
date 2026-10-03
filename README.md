@@ -66,4 +66,4 @@ To add or replace screenshots, put PNGs in `screenshots-src/<project-slug>/` and
 
 ## Deploying
 
-The repo is connected to Vercel, so pushes to `master` deploy to production. `vercel.json` sets the Vite preset, an SPA rewrite (static assets and the generated project pages are served first), clean URLs and cache headers.
+The repo is connected to Vercel, so pushes to `master` deploy to production. `vercel.json` sets the Vite preset, an SPA rewrite (static assets and the generated project pages are served first) and cache headers.
