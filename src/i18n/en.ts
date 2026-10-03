@@ -357,23 +357,24 @@ export const en: Translations = {
       overview: [
         'A chess.com-style trainer for League of Legends game sense. Real in-game situations (rotations, trades, fights and macro decisions) become quizzes, timed drills and head-to-head matches.',
         'It is a full-stack app: a React frontend, a Fastify API with a Socket.io server, PostgreSQL through Prisma, Redis, and a separate admin panel for managing content.',
+        'The live demo runs without the backend. A demo build answers the API in the browser from the real seed data, so every single-player mode, XP levels and the leaderboard work as a guest. Live duels need the game server, so the demo explains that instead.',
       ],
       features: [
         'Scenario quizzes per lane, with hints and explanations',
-        'Blitz mode on a 10-second timer',
-        'Guess the Rank from gameplay clips',
+        'Blitz mode on a 25-second timer',
+        'Guess the Rank from gameplay clips, with a community vote breakdown',
         'Real-time 1v1 trivia and Guess the Rank duels via invite link',
         'Champion knowledge hub on live Data Dragon data',
-        'Profiles with per-lane ranks, points and a leaderboard',
+        'XP levels with a level-up popup, per-lane ranks and a leaderboard',
       ],
       highlights: [
         {
           title: 'Server-authoritative duels',
-          body: 'The Socket.io server owns the match state: it sends each round, scores answers, decides the winner (including draws) and lets players reconnect, resume and rematch.',
+          body: 'The Socket.io server owns the match state: it sends each round on a 20-second timer, scores answers, decides the winner (including draws) and lets players reconnect, resume and rematch. Invite tokens live in Redis.',
         },
         {
-          title: 'Redis where it counts',
-          body: 'Short-lived invite tokens and the leaderboard cache live in Redis, keeping hot paths off the database.',
+          title: 'Backend-free demo build',
+          body: 'With one build flag, the API client answers requests in the browser using the backend’s own rules (scoring, tiers, the XP curve) and seed data, so the app can be tried without running any server.',
         },
         {
           title: 'Always on the latest patch',
@@ -381,12 +382,15 @@ export const en: Translations = {
         },
         {
           title: 'Content managed separately',
-          body: 'A separate admin app with role-based access is used to create questions, manage Guess the Rank rounds and view users.',
+          body: 'A separate admin app with role-based access is used to manage questions and Guess the Rank rounds, and to rename, re-role or remove users.',
         },
       ],
       shots: {
         landing: 'Landing page',
-        features: 'Feature overview',
+        scenarios: 'Scenario answered, with the correct call highlighted',
+        'guess-rank': 'Guess the Rank: watching a clip and picking a rank',
+        'guess-rank-results': 'Guess the Rank results and vote breakdown',
+        profile: 'Profile with XP level and stats',
         'knowledge-hub': 'Champion knowledge hub',
         champion: 'Champion detail page',
         'mobile-landing': 'Landing page on mobile',

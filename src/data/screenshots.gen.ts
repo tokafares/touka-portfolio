@@ -37,17 +37,33 @@ export const screenshotSizes = {
       "width": 1440,
       "height": 900
     },
+    "guess-rank-results": {
+      "width": 1440,
+      "height": 900
+    },
+    "guess-rank": {
+      "width": 1440,
+      "height": 900
+    },
     "knowledge-hub": {
       "width": 1440,
       "height": 900
     },
     "landing": {
-      "width": 1296,
-      "height": 810
+      "width": 1600,
+      "height": 900
     },
     "mobile-landing": {
       "width": 750,
       "height": 1624
+    },
+    "profile": {
+      "width": 1440,
+      "height": 900
+    },
+    "scenarios": {
+      "width": 1440,
+      "height": 900
     }
   },
   "nour-clinic": {

@@ -57,11 +57,13 @@ export const projects: readonly Project[] = [
   },
   {
     slug: 'gamersense',
+    // Backend-free demo build (the `demo` branch); live duels need the real server.
+    liveUrl: 'https://gamersense-touka.vercel.app',
     repoUrl: 'https://github.com/tokafares/Gamer-Sense',
     concept: false,
     tech: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Framer Motion', 'Zustand', 'Fastify', 'Socket.io', 'Prisma', 'PostgreSQL', 'Redis'],
     cover: 'landing',
-    screenshots: ['landing', 'features', 'knowledge-hub', 'champion', 'mobile-landing'],
+    screenshots: ['landing', 'scenarios', 'guess-rank', 'guess-rank-results', 'profile', 'knowledge-hub', 'champion', 'mobile-landing'],
   },
 ]
 
