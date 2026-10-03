@@ -22,7 +22,7 @@ Personal portfolio of a freelance frontend and full-stack developer: services, s
 - `scripts/postbuild.ts` writes a static `dist/projects/<slug>/index.html` for each case study with its own metadata, so crawlers and link previews don't need JavaScript. It also writes `sitemap.xml` and `robots.txt`.
 - Self-hosted variable fonts (Geist, Geist Mono, Instrument Serif). Cairo is a separate chunk loaded only when Arabic is shown.
 - Screenshots are WebP in two sizes (full and 640px) with `srcset`, explicit dimensions and lazy loading. The case-study route is code-split.
-- Lighthouse (local production build): 100 for accessibility, best practices and SEO; performance 100 on desktop and 93–94 on mobile.
+- Lighthouse on the live site: 100 for accessibility, best practices and SEO; performance 100 on desktop and 95–98 on mobile.
 
 ## Tech stack
 
